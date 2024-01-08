@@ -1,5 +1,5 @@
-<?php
-include '../../.config/db.php';
+<?php 
+include '../../../.config/db.php';
 
 $id_kamar = $_POST['id'];
 $harga = $_POST['harga'];
@@ -13,6 +13,7 @@ if (isset($_POST['status'])) {
     $status = false;
 }
 
-mysqli_query($conn, "insert into kamar values('$id_kamar', '$harga', '$status', '$keterangan')");
+mysqli_query($conn, "UPDATE kamar SET id='$id_kamar', harga='$harga', status='$status', keterangan='$keterangan' WHERE id='$id_kamar'");
+
 header("location:../");
 ?>

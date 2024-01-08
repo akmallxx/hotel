@@ -3,7 +3,7 @@ $conn = mysqli_connect(
     "localhost", //host
     "root", //user
     "", // pass
-    "hotel_akmal" //db
+    "hotel_2" //db
 );
 
 $webname = "Sriwijaya Hotel";

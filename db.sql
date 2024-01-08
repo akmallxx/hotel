@@ -70,7 +70,7 @@ CREATE TABLE `reservasi` (
   `id_kamar` int(25), FOREIGN KEY (id_kamar) REFERENCES kamar(id), 
   `tanggal_checkin` date NOT NULL,
   `tanggal_checkout` date NOT NULL,
-  `harga` INT(25) NOT NULL
+  `status_pembayaran` tinyint(1) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

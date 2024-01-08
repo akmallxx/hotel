@@ -1,0 +1,28 @@
+body {
+  background-color: coral;
+}
+
+.header {
+  background: url('../.media/hotel/exterior.jpg') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 150px 0;
+  position: relative;
+}
+
+.header-content {
+  position: absolute;
+  top: 53%; /* Tempatkan elemen vertikal */
+  left: 50%; /* Tempatkan elemen di tengah horizontal */
+  transform: translate(-50%, -50%); /* Geser elemen ke tengah */
+  text-align: center;
+}
+
+.header-content h1 {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.header-content p {
+  font-size: 20px;
+}

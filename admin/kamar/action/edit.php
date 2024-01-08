@@ -1,5 +1,5 @@
 <?php 
-include '../../.config/db.php';
+include '../../../.config/db.php';
 
 $id_kamar = $_POST['id'];
 $harga = $_POST['harga'];

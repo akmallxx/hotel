@@ -1,6 +1,6 @@
 <?php
-include '.config/db.php';
-$tableName = "kamar";
+include '../../.config/db.php';
+$tableName = basename(dirname(__FILE__));
 ?>
 
 <html>
@@ -11,7 +11,7 @@ $tableName = "kamar";
         <?php echo $webname ?>
     </title>
 
-    <link rel="stylesheet" href=".css/style.css">
+    <link rel="stylesheet" href="../../.css/style.css">
 
     <!-- Sweet Alert 2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -28,8 +28,8 @@ $tableName = "kamar";
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: antiquewhite;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="./">
-                <img src="./.media/logo.png" alt="sriwijaya logo" width="120px">
+            <a class="navbar-brand" href="../../">
+                <img src="../../.media/logo.png" alt="sriwijaya logo" width="120px">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +51,7 @@ $tableName = "kamar";
                             $result = $conn->query($query);
 
                             while ($row = $result->fetch_row()) {
-                                echo "<li><a class='dropdown-item' href='admin/" . $row[0] . ".php'>" . $row[0] . "</a></li>";
+                                echo "<li><a class='dropdown-item' href='../../admin/" . $row[0] . "'>" . $row[0] . "</a></li>";
                             }
                             ?>
                         </ul>
@@ -84,12 +84,32 @@ $tableName = "kamar";
                 <tbody>
                     <tr>
                         <td>
+                            <?php echo $d['id']; ?>
+                        </td>
+                        <td>
+                            Rp
+                            <?php echo str_replace(",", ".", number_format($d['harga'])); ?>
+                        </td>
+                        <td>
                             <?php
-                            $fi = $conn->query("DESCRIBE $tableName");
-                            while ($row = $fi->fetch_array()) {
-                                echo $d[$row["Field"]]; 
-                            }
+                            if ($d['status'] > 0) {
+                                echo "Tersedia";
+                            } else
+                                echo "Tidak Tersedia";
                             ?>
+                        </td>
+                        <td>
+                            <button class="btn btn-outline-secondary"
+                                onclick="showAlert(`Keterangan kamar <?php echo $d['id']; ?>: `, `<?php echo $d['keterangan'] ?>`)">Lihat
+                                keterangan</button>
+                        </td>
+                        <td>
+                            <a href="edit.php?id=<?php echo $d['id']; ?>" style="text-decoration: none;">
+                                <button class="btn btn-outline-info">Edit</button>
+                            </a>
+                            <a href="hapus.php?id=<?php echo $d['id']; ?>">
+                                <button class="btn btn-outline-danger">Hapus</button>
+                            </a>
                         </td>
                     </tr>
                 </tbody>
@@ -98,9 +118,9 @@ $tableName = "kamar";
             ?>
         </table>
         <!-- Button trigger modal -->
-        <!-- <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Tambah <?php echo $tableName ?>
-        </button> -->
+        </button>
 
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
