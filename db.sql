@@ -53,9 +53,12 @@ CREATE TABLE `pegawai` (
 --
 
 CREATE TABLE `tamu` (
-  `id` int(25) PRIMARY KEY,
-  `nama` varchar(25) NOT NULL,
-  `surel` varchar(25) NOT NULL
+  `id` int(255) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `nama` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `surel` varchar(255) NOT NULL,
+  `nomor_telepon` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -71,6 +74,12 @@ CREATE TABLE `reservasi` (
   `tanggal_checkin` date NOT NULL,
   `tanggal_checkout` date NOT NULL,
   `status_pembayaran` tinyint(1) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `user` (
+  `id` INT(25) PRIMARY KEY,
+  `nama` VARCHAR(255),
+  `admin` TINYINT(1)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

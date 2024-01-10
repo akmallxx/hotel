@@ -96,6 +96,11 @@ include './.config/db.php';
             Hubungi Kami
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login.php">
+            Reservasi
+          </a>
+        </li>
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -103,6 +108,14 @@ include './.config/db.php';
         </li>
         <li class="nav-item">
 
+        </li>
+        <li class="nav-item">
+          <a href="#" style="text-decoration: none;">
+          <button type="button" class="btn btn-outline-secondary">Login</button>
+          </a>
+          <a href="#" style="text-decoration: none;">
+          <button type="button" class="btn btn-outline-secondary">Register</button>
+          </a>
         </li>
         <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
