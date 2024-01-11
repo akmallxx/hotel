@@ -27,52 +27,43 @@
             top: 50%;
             transform: translate(-50%, -50%);
             border: 5px solid #f1f1f1;
+            background-color: white;
+            border-radius: 5px;
             padding: 20px;
             z-index: 9;
-        }
-
-        .overlay {
-            display: none;
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 10;
         }
     </style>
 </head>
 
 <body class="container-fluid">
-<button class="open-button" onclick="openForm()">Open Form</button>
-        <div class="form-popup" id="myForm">
-            <h1 class="text-center">Login</h1>
+    <button class="open-button" onclick="openForm()">Open Form</button>
+    <div class="form-popup" id="myForm">
+        <h1 class="text-center">Login</h1>
 
-            <form action="" method="post">
-                <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" name="username">
-                    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" name="password">
-                </div>
-                <button type="submit" class="btn btn-primary">Login</button>
-                <button type="button" class="btn btn-danger" onclick="closeForm()">Cancel</button>
-            </form>
+        <form action="" method="post">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" name="username">
+                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" name="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="button" class="btn btn-danger" onclick="closeLoginForm()">Cancel</button>
+        </form>
 
-            <script>
-                function openForm() {
-                    document.getElementById("myForm").style.display = "block";
-                }
+        <script>
+            function openForm() {
+                document.getElementById("myForm").style.display = "block";
+            }
 
-                function closeForm() {
-                    document.getElementById("myForm").style.display = "none";
-                }
-            </script>
-        </div>
+            function closeForm() {
+                document.getElementById("myForm").style.display = "none";
+            }
+        </script>
+    </div>
 </body>
 
 </html>

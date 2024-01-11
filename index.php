@@ -31,6 +31,7 @@ include './.config/db.php';
     * {
       font-family: 'Poppins', sans-serif;
     }
+
     .h-font {
       font-family: 'Merienda', cursive;
     }
@@ -68,6 +69,139 @@ include './.config/db.php';
     }
   </style>
 </head>
+
+<!-- Login Modal -->
+<div class="modal fade" id="login-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Halaman Login</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="db/login.php" id="registration-form" name="registration-form">
+          <div>
+          <div class="mb-3">
+              <label for="inputEmail" class="form-label">Alamat Email <b style="color: red;">*</b></label>
+              <input type="text" class="form-control" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="inputPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" name="password" id="password" required>
+            </div>
+
+
+            <!-- Button Modal -->
+            <div class="mb-3">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                Batal
+              </button>
+              <button type="submit" class="btn btn-success">
+                Simpan
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Login Modal -->
+
+<!-- Register Modal -->
+<div class="modal fade" id="register-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Halaman Registrasi</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="db/register.php" id="registration-form" name="registration-form">
+          <div>
+            <div class="mb-3">
+              <label for="inputFullname" class="form-label">Nama Lengkap <b style="color: red;">*</b></label>
+              <input type="text" class="form-control" name="fullname" required>
+            </div>
+            <div class="mb-3">
+              <label for="inputUsername" class="form-label">Nama Pengguna <b style="color: red;">*</b></label>
+              <input type="text" class="form-control" name="username" id="inputUsername" required>
+              <div id="passwordHelp" class="form-text"><b style="color: red;">*</b> Hanya huruf kecil, titik, garis bawah, dan tidak boleh ada spasi.</div>
+            </div>
+            <div class="mb-3">
+              <label for="inputId" class="form-label">No. Telepon <b style="color: red;">*</b></label>
+              <input type="number" class="form-control" name="telepon" required>
+            </div>
+            <div class="mb-3">
+              <label for="inputEmail" class="form-label">Alamat Email <b style="color: red;">*</b></label>
+              <input type="email" class="form-control" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="inputAlamat" class="form-label">Alamat Rumah <p style="font-size: 12px;">opsional</p></label>
+              <textarea name="alamat" class="form-control" cols="30" rows="4"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="inputPassword" class="form-label">Password</label>
+              <input type="password" class="form-control" name="password" id="password" required>
+              <div id="passwordHelp" class="form-text"><b style="color: red;">*</b> Password harus lebih dari 8 karakter</div>
+            </div>
+            <div class="mb-3">
+              <label for="confirmPassword" class="form-label">Konfirmasi Password</label>
+              <input type="password" id="confirm-password" class="form-control" name="confirm-password" required>
+              <div id="passwordHelp" class="form-text"><b style="color: red;">*</b> Password harus lebih dari 8 karakter</div>
+            </div>
+
+            <script>
+              document.getElementById('registration-form').addEventListener('submit', function (event) {
+                // Username Checker
+                var username = document.getElementById('inputUsername').value;
+
+                // Regular expression to allow only lowercase alphabets, dots, underscores, and no spaces
+                var usernameRegex = /^[a-z._]+$/;
+
+                if (!usernameRegex.test(username)) {
+                  alert('Nama Pengguna tidak valid! Hanya huruf kecil, titik, garis bawah, dan tidak boleh ada spasi.');
+                  event.preventDefault(); // Prevent form submission
+                } else if (username.length > 30) {
+                  alert('Nama Pengguna terlalu panjang! buatlah nama pengguna maksimal 30 karakter.');
+                  event.preventDefault(); // Prevent form submission
+                }
+
+                // Password Checker
+                var password = document.getElementById('password').value;
+                var confirmPassword = document.getElementById('confirm-password').value;
+
+                if (password.length < 8) {
+                  alert('Password harus memiliki setidaknya 8 karakter.');
+                  event.preventDefault(); // Prevent form submission
+                } else if (password !== confirmPassword) {
+                  alert('Password tidak cocok! Harap periksa kembali.');
+                  event.preventDefault(); // Prevent form submission
+                }
+              });
+            </script>
+
+
+            <!-- Button Modal -->
+            <div class="mb-3">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                Batal
+              </button>
+              <button type="submit" class="btn btn-success">
+                Simpan
+              </button>
+              Sudah punya akun? <a data-bs-toggle="modal"
+            data-bs-target="#login-modal">Login</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Register Modal -->
 
 <!-- Navbar -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white px-lg-3 py-lg-2 shadow-sm sticky-top">
@@ -110,12 +244,14 @@ include './.config/db.php';
 
         </li>
         <li class="nav-item">
-          <a href="#" style="text-decoration: none;">
-          <button type="button" class="btn btn-outline-secondary">Login</button>
-          </a>
-          <a href="#" style="text-decoration: none;">
-          <button type="button" class="btn btn-outline-secondary">Register</button>
-          </a>
+        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+            data-bs-target="#login-modal">
+            Login
+          </button>
+          <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal"
+            data-bs-target="#register-modal">
+            Register
+          </button>
         </li>
         <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -161,5 +297,21 @@ include './.config/db.php';
   </p>
 </div>
 <!-- End Content -->
+
+<script>
+  const myModal = document.getElementById('myModal')
+  const myInput = document.getElementById('myInput')
+
+  myModal.addEventListener('shown.bs.modal', () => {
+    myInput.focus()
+  })
+
+  function showAlert(title, text) {
+    Swal.fire({
+      title: title,
+      text: text,
+    })
+  }
+</script>
 
 </html>

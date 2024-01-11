@@ -87,6 +87,9 @@ $tableName = basename(dirname(__FILE__));
                             <?php echo $d['id']; ?>
                         </td>
                         <td>
+                            <?php echo $d['tipe']; ?>
+                        </td>
+                        <td>
                             Rp
                             <?php echo str_replace(",", ".", number_format($d['harga'])); ?>
                         </td>
@@ -118,12 +121,12 @@ $tableName = basename(dirname(__FILE__));
             ?>
         </table>
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Tambah <?php echo $tableName ?>
+        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#inputKamarModal">
+            Tambah Kamar
         </button>
 
         <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        <div class="modal fade" id="inputKamarModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -139,13 +142,17 @@ $tableName = basename(dirname(__FILE__));
                                     <input type="number" class="form-control" name="id">
                                 </div>
                                 <div class="mb-3">
+                                    <label for="inputId" class="form-label">Tipe</label>
+                                    <input type="text" class="form-control" name="tipe">
+                                </div>
+                                <div class="mb-3">
                                     <label for="inputHarga" class="form-label">Harga</label>
                                     <input type="number" class="form-control" name="harga">
                                 </div>
                                 <div class="mb-3 form-check">
                                     <input type="checkbox" class="form-check-input" name="status">
                                     <label class="form-check-label" for="statusCheck">Ketersediaan</label>
-                                    <div class="form-text">centang jika <?php echo $tableName ?> tersedia</div>
+                                    <div class="form-text"><b style="color: red;">*</b> centang jika <?php echo $tableName ?> tersedia</div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="inputKeterangan" class="form-label">Keterangan</label>
