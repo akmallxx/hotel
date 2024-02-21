@@ -54,7 +54,7 @@ CREATE TABLE `pegawai` (
 --
 
 CREATE TABLE `user` (
-  `id` int(255) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `id` int(255) PRIMARY KEY AUTO_INCREMENT,
   `fullname` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `nomor_telepon` varchar(255) NOT NULL,

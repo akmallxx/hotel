@@ -1,69 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+include './.config/db.php';
 
+$pageName = ucfirst(basename(__FILE__, ".php"));
+?>
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-
-    <!-- bootstrap v5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
-
-    <style>
-        /* The popup form - hidden by default */
-        .form-popup {
-            display: none;
-            position: fixed;
-            width: 300px;
-            height: 330px;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            border: 5px solid #f1f1f1;
-            background-color: white;
-            border-radius: 5px;
-            padding: 20px;
-            z-index: 9;
-        }
-    </style>
+  <title><?php echo $pageName . " - " . $webname ?>  </title>
+  <?php include 'header.php'; ?>
 </head>
 
-<body class="container-fluid">
-    <button class="open-button" onclick="openForm()">Open Form</button>
-    <div class="form-popup" id="myForm">
-        <h1 class="text-center">Login</h1>
+<div class="modal-body">
+  <form method="post" action="user/login.php" id="login-form" name="login-form">
+    <div>
+      <div class="mb-3">
+        <label for="inputEmail" class="form-label">Email</label>
+        <input type="email" class="form-control" name="login-email" required>
+      </div>
+      <div class="mb-3">
+        <label for="inputPassword" class="form-label">Password</label>
+        <input type="password" class="form-control" name="login-password" id="login-password" required>
+      </div>
 
-        <form action="" method="post">
-            <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" name="username">
-                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" name="password">
-            </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-            <button type="button" class="btn btn-danger" onclick="closeLoginForm()">Cancel</button>
-        </form>
 
-        <script>
-            function openForm() {
-                document.getElementById("myForm").style.display = "block";
-            }
-
-            function closeForm() {
-                document.getElementById("myForm").style.display = "none";
-            }
-        </script>
+      <!-- Button Modal -->
+      <div class="mb-3 text-center">
+        <br>
+        <button type="submit" class="btn btn-success">
+          Login
+        </button>
+        <br>
+        Belum punya akun? <a data-bs-dismiss="modal" data-bs-toggle="modal" href="#register-modal">Register</a>
+      </div>
     </div>
-</body>
-
-</html>
+  </form>
+</div

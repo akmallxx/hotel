@@ -1,12 +1,8 @@
 <?php
 include './.config/db.php';
-$pageName = ucfirst(basename(__FILE__, ".php"));
+include 'header.php';
 ?>
 <html lang="id">
-<head>
-<title><?php echo $webname ?>  </title>
-  <?php include 'header.php'; ?>
-</head>
 
 <!-- Login Modal -->
 <div class="modal fade" id="login-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -168,7 +164,7 @@ $pageName = ucfirst(basename(__FILE__, ".php"));
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#kontak">
+          <a class="nav-link" href="#">
             Hubungi Kami
           </a>
         </li>
@@ -216,7 +212,7 @@ $pageName = ucfirst(basename(__FILE__, ".php"));
 <!-- End Navbar -->
 
 <!-- Banner -->
-<div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center" id='home'>
+<div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
   <h1 class="text-white" style="font-size: 60px;"><b>SRIWIJAYA HOTEL</b></h1>
 </div>
 
@@ -235,89 +231,6 @@ $pageName = ucfirst(basename(__FILE__, ".php"));
   </p>
 </div>
 <!-- End Main Content -->
-
-<!-- Footer -->
-<footer
-          id="kontak"
-          class="text-center text-lg-start text-white"
-          style="background-color: #1c2331"
-          >
-    <!-- Section: Social media -->
-    <section
-             class="d-flex justify-content-between p-4"
-             style="background-color: rgba(0, 0, 0, 0.2)"
-             >
-      <!-- Left -->
-      <div class="me-5">
-        <span>Get connected with us on social networks:</span>
-      </div>
-      <!-- Left -->
-
-      <!-- Right -->
-      <div>
-        <a href="#" class="text-white me-4">
-        <i class="bi bi-facebook"></i>
-        </a>
-        <a href="#" class="text-white me-4">
-          <i class="bi bi-twitter-x"></i>
-        </a>
-        <a href="#" class="text-white me-4">
-          <i class="bi bi-instagram"></i>
-        </a>
-      </div>
-      <!-- Right -->
-    </section>
-    <!-- Section: Social media -->
-
-    <!-- Section: Links  -->
-    <section class="">
-      <div class="container text-center text-md-start mt-5">
-        <!-- Grid row -->
-        <div class="row mt-3">
-          <!-- Grid column -->
-          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-            <!-- Content -->
-            <h6 class="text-uppercase fw-bold">Company name</h6>
-            <hr
-                class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px"
-                />
-            <p>
-              Here you can use rows and columns to organize your footer
-              content. Lorem ipsum dolor sit amet, consectetur adipisicing
-              elit.
-            </p>
-          </div>
-          <!-- Grid column -->
-          <!-- Grid column -->
-          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold">Contact</h6>
-            <hr
-                class="mb-4 mt-0 d-inline-block mx-auto"
-                style="width: 60px; background-color: #7c4dff; height: 2px"
-                />
-            <p><i class="fas fa-home mr-3"></i> Jl. Veteran No.1, Gambir, Kecamatan Gambir, Kota Jakarta Pusat, Bali 10110</p>
-            <p><i class="fas fa-envelope mr-3"></i> cs@sriwijayahotel.com</p>
-            <p><i class="fas fa-phone mr-3"></i> +62 817 7363 7362</p>
-          </div>
-          <!-- Grid column -->
-        </div>
-        <!-- Grid row -->
-      </div>
-    </section>
-    <!-- Section: Links  -->
-
-    <!-- Copyright -->
-    <div
-         class="text-center p-3"
-         style="background-color: rgba(0, 0, 0, 0.2)"
-         >
-      © 2024 Copyright: <b class="text-white">Sriwijaya Hotel</b>
-    </div>
-    <!-- Copyright -->
-  </footer>
-  <!-- Footer -->
 
 <script src="./js/bootstrap.bundle.min.js"></script>
 <script>
@@ -339,6 +252,13 @@ $pageName = ucfirst(basename(__FILE__, ".php"));
   myModal.addEventListener('shown.bs.modal', () => {
     myInput.focus()
   })
+
+  function showAlert(title, text) {
+    Swal.fire({
+      title: title,
+      text: text,
+    })
+  }
 
   function notLogged() {
     alert('Harap login terlebih dahulu!')

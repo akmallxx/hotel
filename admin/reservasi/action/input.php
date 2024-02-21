@@ -13,6 +13,6 @@ if (isset($_POST['status'])) {
     $status = false;
 }
 
-mysqli_query($conn, "insert into kamar values('$id_kamar', '$harga', '$status', '$keterangan')");
+mysqli_query($conn, "insert into reservasi values('$id_kamar', '$harga', '$status', '$keterangan')");
 header("location:../");
 ?>
