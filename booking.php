@@ -101,15 +101,15 @@ $pageName = ucfirst(basename(__FILE__, ".php"));
 
                 if (selectedTipeKamar) {
                     fetch('get_nomor_kamar.php?id_tipe=' + selectedTipeKamar)
-                        .then(response => response.json())
-                        .then(data => {
+                        .then(response => console.log(response.json()))
+                        /* .then(data => {
                             data.forEach(nomor => {
                                 var option = document.createElement("option");
                                 option.text = nomor.nomor_kamar;
                                 option.value = nomor.nomor_kamar;
                                 nomorKamarSelect.add(option);
                             });
-                        })
+                        }) */
                         .catch(error => console.error('Error:', error));
                 }
             });
