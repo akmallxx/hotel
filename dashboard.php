@@ -47,7 +47,7 @@ $pageName = ucfirst(basename(__FILE__, ".php"));
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="reservasi.php">
+          <a class="nav-link" href="booking.php">
             Reservasi
           </a>
         </li>

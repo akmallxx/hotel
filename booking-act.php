@@ -9,5 +9,5 @@ $co = $_POST['checkout'];
 $total_harga = $_POST['harga'];
 
 mysqli_query($conn, "insert into booking values(null, '$nama_tamu', '$id_tipe', '$nomor_kamar', '$ci', '$co', '$total_harga')");
-header("location:../");
+header("location:./dashboard.php");
 ?>

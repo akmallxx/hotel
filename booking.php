@@ -84,7 +84,7 @@ $pageName = ucfirst(basename(__FILE__, ".php"));
 
             if (!isNaN(selisihHari) && hargaKamar) {
                 var totalPembayaran = hargaKamar * selisihHari;
-                document.getElementById("harga").value = totalPembayaran.toLocaleString('id');
+                document.getElementById("harga").value = totalPembayaran;
             } else {
                 document.getElementById("harga").value = 0;
             }
@@ -101,15 +101,16 @@ $pageName = ucfirst(basename(__FILE__, ".php"));
 
                 if (selectedTipeKamar) {
                     fetch('get_nomor_kamar.php?id_tipe=' + selectedTipeKamar)
-                        .then(response => console.log(response.json()))
-                        /* .then(data => {
+                        .then(response => response.json())
+                        .then(data => {
                             data.forEach(nomor => {
                                 var option = document.createElement("option");
                                 option.text = nomor.nomor_kamar;
                                 option.value = nomor.nomor_kamar;
                                 nomorKamarSelect.add(option);
+                                console.log(nomor);
                             });
-                        }) */
+                        })
                         .catch(error => console.error('Error:', error));
                 }
             });
