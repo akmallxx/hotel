@@ -64,8 +64,9 @@ $tableName = basename(dirname(__FILE__));
     <div class="container-fluid" style="padding: 50px;">
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            Tambah <?php echo $tableName ?>
-        </button><br><br> 
+            Tambah
+            <?php echo $tableName ?>
+        </button><br><br>
 
         <table class="table table-striped">
             <thead class="table-secondary">
@@ -90,10 +91,25 @@ $tableName = basename(dirname(__FILE__));
                             <?php echo $d['id']; ?>
                         </td>
                         <td>
-                            <?php echo $d['nama']; ?>
+                            <?php echo $d['fullname']; ?>
                         </td>
                         <td>
-                            <?php echo $d['surel']; ?>
+                            <?php echo $d['username']; ?>
+                        </td>
+                        <td>
+                            <?php echo $d['nomor_telepon']; ?>
+                        </td>
+                        <td>
+                            <?php echo $d['email']; ?>
+                        </td>
+                        <td>
+                            <?php echo $d['alamat_rumah']; ?>
+                        </td>
+                        <td>
+                            <?php echo $d['password']; ?>
+                        </td>
+                        <td>
+                            <?php echo $d['user_level']; ?>
                         </td>
                         <td>
                             <a href="edit.php?id=<?php echo $d['id']; ?>" style="text-decoration: none;">
@@ -110,13 +126,16 @@ $tableName = basename(dirname(__FILE__));
             ?>
         </table>
 
+
         <!-- Modal -->
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah data <?php echo $tableName ?></h1>
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Tambah data
+                            <?php echo $tableName ?>
+                        </h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -127,12 +146,33 @@ $tableName = basename(dirname(__FILE__));
                                     <input type="number" class="form-control" name="id">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="inputNama" class="form-label">Nama</label>
-                                    <input type="text" class="form-control" name="nama">
+                                    <label for="inputFullname" class="form-label">Nama Lengkap</label>
+                                    <input type="text" class="form-control" name="fullname">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="inputNama" class="form-label">Email</label>
-                                    <input type="email" class="form-control" name="surel">
+                                    <label for="inputUsername" class="form-label">Nama Pengguna</label>
+                                    <input type="text" class="form-control" name="username">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="inputNotelp" class="form-label">No. Telepon</label>
+                                    <input type="number" class="form-control" name="no_telp">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="inputEmail" class="form-label">Email</label>
+                                    <input type="email" class="form-control" name="email">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="inputAlamat" class="form-label">Alamat Rumah</label>
+                                    <textarea name="alamat" class="form-control" cols="30" rows="4"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="inputPassword" class="form-label">Password</label>
+                                    <input type="text" class="form-control" name="password">
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" name="status">
+                                    <label class="form-check-label" for="statusCheck">User Level</label>
+                                    <div class="form-text"><b style="color: red;">*</b> centang sebagai hak admin</div>
                                 </div>
                                 <div class="mb-3">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">

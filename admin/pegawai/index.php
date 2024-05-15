@@ -65,7 +65,7 @@ $tableName = basename(dirname(__FILE__));
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Tambah <?php echo $tableName ?>
-        </button><br><br> 
+        </button><br><br>
 
         <table class="table table-striped">
             <thead class="table-secondary">

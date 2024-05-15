@@ -34,14 +34,16 @@ while ($d = mysqli_fetch_array($data)) {
                 </td>
             </tr>
             <tr>
+                <td>TIPE KAMAR: </td>
+                <td>
+                    <input type="text" name="tipe" value="<?php echo $d['tipe']; ?>">
+                </td>
+            </tr>
+            <tr>
                 <td>HARGA: </td>
                 <td>
                     <input type="text" name="harga" value="<?php echo $d['harga']; ?>">
                 </td>
-            </tr>
-            <tr>
-                <td>STATUS: </td>
-                <td><input type="checkbox" name="status">Tersedia</td>
             </tr>
             <tr>
                 <td>KETERANGAN: </td>

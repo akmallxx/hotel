@@ -7,16 +7,16 @@
 
 
 
-include './.config/db.php';
+include '../.config/db.php';
 $pageName = ucfirst(basename(__FILE__, ".php"));
 ?>
 <html lang="id">
 
 <head>
   <title>
-    Dashboard - <?php echo $webname ?>
+    <?php echo $webname ?>
   </title>
-  <?php include 'header.php'; ?>
+  <?php include '../header.php'; ?>
 </head>
 
 <!-- Navbar -->
@@ -47,7 +47,7 @@ $pageName = ucfirst(basename(__FILE__, ".php"));
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="reservasi.php">
+          <a class="nav-link" href="#reservasi">
             Reservasi
           </a>
         </li>
@@ -72,6 +72,7 @@ $pageName = ucfirst(basename(__FILE__, ".php"));
         <li class="nav-item">
           <button type="button" class="btn btn-outline-light">
             Keluar
+
             
           </button>
         </li>
@@ -185,7 +186,7 @@ $pageName = ucfirst(basename(__FILE__, ".php"));
   </footer>
   <!-- Footer -->
 
-<script src="./js/bootstrap.bundle.min.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
 <script>
   var nav = document.querySelector('nav');
 

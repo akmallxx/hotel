@@ -10,6 +10,8 @@ $tableName = basename(dirname(__FILE__));
         <?php echo $tableName ?> -
         <?php echo $webname ?>
     </title>
+    <link rel="icon" type="image/png" href="../../.media/logo.png">
+
 
     <link rel="stylesheet" href="../../.css/style.css">
 
@@ -28,7 +30,7 @@ $tableName = basename(dirname(__FILE__));
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: antiquewhite;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="../../">
+            <a class="navbar-brand" href="../../admin.php">
                 <img src="../../.media/logo.png" alt="sriwijaya logo" width="120px">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
@@ -37,9 +39,6 @@ $tableName = basename(dirname(__FILE__));
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -64,6 +63,12 @@ $tableName = basename(dirname(__FILE__));
 
     <!-- Content -->
     <div class="container-fluid" style="padding: 50px;">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#inputKamarModal">
+            Tambah Kamar
+        </button><br><br>
+
+
         <table class="table table-striped">
             <thead class="table-secondary">
                 <tr>
@@ -94,14 +99,6 @@ $tableName = basename(dirname(__FILE__));
                             <?php echo str_replace(",", ".", number_format($d['harga'])); ?>
                         </td>
                         <td>
-                            <?php
-                            if ($d['status'] > 0) {
-                                echo "Tersedia";
-                            } else
-                                echo "Tidak Tersedia";
-                            ?>
-                        </td>
-                        <td>
                             <button class="btn btn-outline-secondary"
                                 onclick="showAlert(`Keterangan kamar <?php echo $d['id']; ?>: `, `<?php echo $d['keterangan'] ?>`)">Lihat
                                 keterangan</button>
@@ -120,10 +117,6 @@ $tableName = basename(dirname(__FILE__));
             }
             ?>
         </table>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#inputKamarModal">
-            Tambah Kamar
-        </button>
 
         <!-- Modal -->
         <div class="modal fade" id="inputKamarModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -148,11 +141,6 @@ $tableName = basename(dirname(__FILE__));
                                 <div class="mb-3">
                                     <label for="inputHarga" class="form-label">Harga</label>
                                     <input type="number" class="form-control" name="harga">
-                                </div>
-                                <div class="mb-3 form-check">
-                                    <input type="checkbox" class="form-check-input" name="status">
-                                    <label class="form-check-label" for="statusCheck">Ketersediaan</label>
-                                    <div class="form-text"><b style="color: red;">*</b> centang jika <?php echo $tableName ?> tersedia</div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="inputKeterangan" class="form-label">Keterangan</label>

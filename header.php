@@ -1,7 +1,3 @@
-<?php
-include './.config/db.php';
-?>
-
 <link rel="icon" type="image/png" href="./.media/logo.png">
 
 <!-- bootstrap v5 -->
