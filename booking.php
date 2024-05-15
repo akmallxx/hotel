@@ -18,14 +18,13 @@ $pageName = ucfirst(basename(__FILE__, ".php"));
 </head>
 
 <body>
-    <?php include 'header.php' ?>
     <div class="container mt-5">
         <div class="card">
             <div class="card-header">
                 <h3>RESERVASI KAMAR</h3>
             </div>
             <div class="card-body">
-                <form method="post" action="inputaksikamar.php">
+                <form method="post" action="booking-act.php">
                     <div class="form-group">
                         <label for="nama_tamu">Nama Tamu</label>
                         <input type="text" class="form-control" name="nama_tamu" id="nama_tamu" required>
@@ -35,8 +34,6 @@ $pageName = ucfirst(basename(__FILE__, ".php"));
                         <select class="form-control" name="id_tipe" id="id_tipe" required>
                             <option value="">Pilih tipe kamar</option>
                             <?php
-                            include "./.config/db.php";
-
                             $query = "SELECT id, tipe, harga, keterangan FROM kamar";
                             $result = mysqli_query($conn, $query);
                             while ($row = mysqli_fetch_assoc($result)) {
