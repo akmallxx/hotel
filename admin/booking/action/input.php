@@ -1,18 +1,13 @@
 <?php
 include '../../../.config/db.php';
 
-$id_pegawai = $_POST['id'];
-$nama = $_POST['nama'];
-$surel = $_POST['surel'];
+$nama_tamu = $_POST['nama_tamu'];
+$id_tipe = $_POST['id_tipe'];
+$nomor_kamar = $_POST['nomor_kamar'];
+$ci = $_POST['checkin'];
+$co = $_POST['checkout'];
+$total_harga = $_POST['harga'];
 
-if (isset($_POST['status'])) {
-    // Checkbox dicentang (checked)
-    $status = true;
-} else {
-    // Checkbox tidak dicentang (unchecked)
-    $status = false;
-}
-
-mysqli_query($conn, "insert into pegawai values('$id_pegawai', '$nama', '$surel')");
+mysqli_query($conn, "insert into booking values(null, '$nama_tamu', '$id_tipe', '$nomor_kamar', '$ci', '$co', '$total_harga')");
 header("location:../");
 ?>

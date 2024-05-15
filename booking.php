@@ -31,7 +31,7 @@ $pageName = ucfirst(basename(__FILE__, ".php"));
                     </div>
                     <div class="form-group">
                         <label for="id_tipe">Tipe Kamar</label>
-                        <select class="form-control" name="id_tipe" id="id_tipe" required>
+                        <select class="form-control" name="id_tipe" id="id_tipe" onchange="updateTotal()" required>
                             <option value="">Pilih tipe kamar</option>
                             <?php
                             $query = "SELECT id, tipe, harga, keterangan FROM kamar";
@@ -63,9 +63,10 @@ $pageName = ucfirst(basename(__FILE__, ".php"));
                         <input type="date" class="form-control" name="checkout" id="checkout" onchange="updateTotal()"
                             required>
                     </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text">Rp.</span>
-                        <input type="text" class="form-control" id="harga" name="harga" disabled>
+                    <div class="form-group">
+                        <label for="harga">Harga</label>
+                        <input type="text" class="form-control" id="hargaTampil" name="hargaTampil" disabled>
+                        <input type="number" class="form-control" id="harga" name="harga" hidden>
                     </div>
                     <button type="submit" id="submit" class="btn btn-primary">Simpan</button>
                 </form>
@@ -84,9 +85,11 @@ $pageName = ucfirst(basename(__FILE__, ".php"));
 
             if (!isNaN(selisihHari) && hargaKamar) {
                 var totalPembayaran = hargaKamar * selisihHari;
-                document.getElementById("harga").value = totalPembayaran;
+                document.getElementById("harga").value = parseInt(totalPembayaran);
+                document.getElementById("hargaTampil").value = "Rp. " + totalPembayaran.toLocaleString('id');
             } else {
                 document.getElementById("harga").value = 0;
+                document.getElementById("hargaTampil").value = 0;
             }
         }
 

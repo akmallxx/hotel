@@ -86,14 +86,26 @@ $tableName = basename(dirname(__FILE__));
                 ?>
                 <tbody>
                     <tr>
-                        <td>
+                    <td>
                             <?php echo $d['id']; ?>
                         </td>
                         <td>
-                            <?php echo $d['nama']; ?>
+                            <?php echo $d['nama_tamu']; ?>
                         </td>
                         <td>
-                            <?php echo $d['surel']; ?>
+                            <?php echo $d['id_tipe']; ?>
+                        </td>
+                        <td>
+                        <?php echo $d['nomor_kamar']; ?>
+                        </td>
+                        <td>
+                            <?php echo $d['tanggal_checkin']; ?>
+                        </td>
+                        <td>
+                            <?php echo $d['tanggal_checkout']; ?>
+                        </td>
+                        <td>
+                            <?php echo $d['total_harga']; ?>
                         </td>
                         <td>
                             <a href="edit.php?id=<?php echo $d['id']; ?>" style="text-decoration: none;">
@@ -123,16 +135,28 @@ $tableName = basename(dirname(__FILE__));
                         <form method="post" action="action/input.php">
                             <div>
                                 <div class="mb-3">
-                                    <label for="inputId" class="form-label">ID</label>
-                                    <input type="number" class="form-control" name="id">
+                                    <label for="inputNama" class="form-label">Nama Tamu</label>
+                                    <input type="text" class="form-control" name="nama_tamu" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="inputNama" class="form-label">Nama</label>
-                                    <input type="text" class="form-control" name="nama">
+                                    <label for="inputNama" class="form-label">ID Tipe</label>
+                                    <input type="number" class="form-control" name="id_tipe" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="inputNama" class="form-label">Email</label>
-                                    <input type="email" class="form-control" name="surel">
+                                    <label for="inputId" class="form-label">Nomor Kamar</label>
+                                    <input type="number" class="form-control" name="nomor_kamar" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="inputNama" class="form-label">Check-In</label>
+                                    <input type="date" class="form-control" name="checkin" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="inputNama" class="form-label">Check-Out</label>
+                                    <input type="date" class="form-control" name="checkout" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="inputNama" class="form-label">Harga</label>
+                                    <input type="number" class="form-control" name="harga" required>
                                 </div>
                                 <div class="mb-3">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
