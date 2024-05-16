@@ -28,45 +28,21 @@ while ($d = mysqli_fetch_array($data)) {
     <form method="post" action="action/edit.php">
         <table>
             <tr>
-                <td>ID</td>
+                <td>ID: </td>
                 <td>
-                    <input type="number" name="id" value="<?php echo $d['id'] ?>" readonly>
+                    <input type="number" name="id" value="<?php echo $d['id']; ?>">
                 </td>
             </tr>
             <tr>
-                <td>Nama Tamu: </td>
+                <td>Nama: </td>
                 <td>
-                    <input type="text" name="nama_tamu" value="<?php echo $d['nama_tamu']; ?>">
+                    <input type="text" name="nama" value="<?php echo $d['nama']; ?>">
                 </td>
             </tr>
             <tr>
-                <td>ID Tipe: </td>
+                <td>Surel: </td>
                 <td>
-                    <input type="number" name="id_tipe" value="<?php echo $d['id_tipe']; ?>">
-                </td>
-            </tr>
-            <tr>
-                <td>Nomor Kamar: </td>
-                <td>
-                    <input type="number" name="nomor_kamar" value="<?php echo $d['nomor_kamar']; ?>">
-                </td>
-            </tr>
-            <tr>
-                <td>Check-In: </td>
-                <td>
-                    <input type="date" name="checkin">
-                </td>
-            </tr>
-            <tr>
-                <td>Check-Out: </td>
-                <td>
-                    <input type="date" name="checkout">
-                </td>
-            </tr>
-            <tr>
-                <td>Harga: </td>
-                <td>
-                    <input type="number" name="harga" value="<?php echo $d['total_harga']; ?>">
+                    <input type="text" name="surel" value="<?php echo $d['surel']; ?>">
                 </td>
             </tr>
             <td></td>

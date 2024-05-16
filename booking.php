@@ -68,7 +68,10 @@ $pageName = ucfirst(basename(__FILE__, ".php"));
                         <input type="text" class="form-control" id="hargaTampil" name="hargaTampil" disabled>
                         <input type="number" class="form-control" id="harga" name="harga" hidden>
                     </div>
-                    <button type="submit" id="submit" class="btn btn-primary">Simpan</button>
+                    <a href="./dashboard.php">
+                        <button type="button" class="btn btn-secondary">Batal</button>
+                    </a>
+                    <button type="submit" id="submit" class="btn btn-primary">Konfirmasi</button>
                 </form>
             </div>
         </div>
@@ -119,9 +122,9 @@ $pageName = ucfirst(basename(__FILE__, ".php"));
             });
         });
 
-        // document.getElementById("submit").addEventListener("click", function () {
-        //     alert("Booking berhasil!");
-        // });
+        document.getElementById("submit").addEventListener("click", function () {
+            alert("Booking berhasil!");
+        });
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
